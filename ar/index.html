@@ -1,6 +1,6 @@
 <base href="https://yans-code.github.io/demo-store/ar">
 <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
-<script src="/assets/js/aframe-ar-nft.js"></script>
+<script src="https://yans-code.github.io/demo-store/ar/assets/js/aframe-ar-nft.js"></script>
 <style>
   /*加载过程中蒙罩的css*/
   .arjs-loader {
@@ -36,7 +36,7 @@
     <!-- 这里是图像标记的配置，下面的url就是图像标记文件的地址，在官方示例中这里使用了cors代理避免跨域问题，作者在这里并没有进行更改 -->
     <a-nft
       type="nft"
-      url="/assets/images/ar-test/ar-test"
+      url="https://yans-code.github.io/demo-store/ar/assets/images/ar-test/ar-test"
       smooth="true"
       smoothCount="10"
       smoothTolerance=".01"
@@ -44,7 +44,7 @@
     >
       <!-- 这里是一个模型实体，gltf-model是模型的地址，在官方示例中这里同样使用了cors代理避免跨域问题，作者在这里并没有进行更改 -->
       <a-entity
-        obj-model="ojb: url(/assets/obj/ar-test.obj)"
+        obj-model="ojb: url(https://yans-code.github.io/demo-store/ar/assets/obj/ar-test.obj)"
         scale="5 5 5"
         position="50 150 0"
       >
