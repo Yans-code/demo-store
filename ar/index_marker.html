@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+  <script src="./assets/js/aframe-ar-nft.js"></script>
+
+  <body style="margin: 0px; overflow: hidden">
+    <a-scene embedded arjs>
+      <a-assets>
+        <a-asset-item
+          id="tree-obj"
+          src="./assets/obj/indoor_plant/indoor_plant_02_obj/indoor_plant_02.obj"
+        ></a-asset-item>
+        <a-asset-item
+          id="tree-mtl"
+          src="./assets/obj/indoor_plant/indoor_plant_02_obj/indoor_plant_02.mtl"
+        ></a-asset-item>
+      </a-assets>
+      <a-marker type="pattern" url="./assets/images/ar-test.patt">
+        <a-entity
+          animation="property: rotation; to: 0 180 360; loop: true; dur: 700"
+          position="0 0 0"
+          rotation="0 180 0"
+          scale="1 1 1"
+          obj-model="obj: #tree-obj; mtl: #tree-mtl"
+        >
+        </a-entity>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
