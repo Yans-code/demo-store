@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <base href="https://yans-code.github.io/demo-store/ar" />
-    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+    <script src="https://yans-code.github.io/demo-store/ar/assets/js/aframe-master.min.js"></script>
     <script src="https://yans-code.github.io/demo-store/ar/assets/js/aframe-ar-nft.js"></script>
     <style>
       /*加载过程中蒙罩的css*/
@@ -39,10 +39,20 @@
       embedded
       arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
     >
+      <a-assets>
+        <a-asset-item
+          id="tree-obj"
+          src="https://yans-code.github.io/demo-store/ar/assets/obj/indoor_plant/indoor_plant_02_obj/indoor_plant_02.obj"
+        ></a-asset-item>
+        <a-asset-item
+          id="tree-mtl"
+          src="https://yans-code.github.io/demo-store/ar/assets/obj/indoor_plant/indoor_plant_02_obj/indoor_plant_02.mtl"
+        ></a-asset-item>
+      </a-assets>
       <!-- 这里是图像标记的配置，下面的url就是图像标记文件的地址，在官方示例中这里使用了cors代理避免跨域问题，作者在这里并没有进行更改 -->
       <a-nft
         type="nft"
-        url="https://yans-code.github.io/demo-store/ar/assets/images/ar-test/ar-test"
+        url="https://yans-code.github.io/demo-store/ar/assets/images/map/map"
         smooth="true"
         smoothCount="10"
         smoothTolerance=".01"
@@ -50,11 +60,12 @@
       >
         <!-- 这里是一个模型实体，gltf-model是模型的地址，在官方示例中这里同样使用了cors代理避免跨域问题，作者在这里并没有进行更改 -->
         <a-entity
-          obj-model="ojb: url(https://yans-code.github.io/demo-store/ar/assets/obj/ar-test.obj)"
-          scale="5 5 5"
-          position="50 150 0"
+          id="example-target"
+          obj-model="obj: #tree-obj; mtl: #tree-mtl"
+          scale="1 10 1"
+          position="-10 -10 -10"
+          rotation="0 0 0"
         >
-        </a-entity>
       </a-nft>
       <a-entity camera></a-entity>
     </a-scene>
