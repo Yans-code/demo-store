@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/super-hands@^3.0.3/dist/super-hands.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.misc.min.js"></script>
+
+</head>
+
+<body>
+
+
+    <!-- cursor="rayOrigin :mouse" -->
+    <a-scene cursor="rayOrigin :mouse">
+        <a-box id="box" color="rgb(255,255,10)" position="-3 1.5 -3" depth="0.5" width="0.5" height="0.5" color-toggle></a-box>
+        <a-entity super-hands sphere-collider="objects:#box"  d ="rightHand" hand-controls="hand:right;handModelStyle:lowPoly;color:rgb(60,60,60)"></a-entity>
+        <a-assets>
+            <a-asset-item id="model" src="https://cdn.jsdelivr.net/npm/electroluxasset/model/scene/scene.gltf"></a-asset-item>
+            <img id="skyImg"
+                src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw0NDQ8NDQ0NDQ0ODQ0NDQ0NDQ8NDQ0NFREWFhURFhUYHSggGBolGxMVITEhJSkrLi4uFx8zODMsNygtNSsBCgoKDQ0NDg0NDisZFRkrKys3NysrKysrKysrKysrKys3KysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAL4BCgMBIgACEQEDEQH/xAAYAAEBAQEBAAAAAAAAAAAAAAABAAIEB//EAB4QAQEBAQACAgMAAAAAAAAAAAABAhFBUSGREnHw/8QAGAEBAQEBAQAAAAAAAAAAAAAAAQADBAX/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAwDAQACEQMRAD8A9RST0GADSIZRCSBSASRAC7O8KASRCFKQZRsBCBSABH5fPEECigkkEkiEkkkkkkhdfPCE6w0GTsgRCSFKQZRBCY1fTdEnEFJxJEANBAIogApBlGilMbpk4ZOFAJJAIggIhBJJJM6rQzOJLMKSDsSFjF2kKQpMoghJJBlNAgJJAJUZnCEGggEkQgUgyiCkCkAhM8KARRDKKSCSQSSIdqSYO8IhBAW+IZOIIFEBJIANVkhApAJM6vifohIzPEgEkQgUgyiCkkkAOrV9KZ4gQUgA0CgjQg7kkwdwGmgkzMkghApAAogApBlEECiZaSASRADQQQSIQKSArQQZkKRCBSASSQRRDtBTB3BJJBEECiRoIIFIMoogClIMoghJJBnMJBADQSCSQSSIC4UgyJGgUkkgEUg7QUwdwBRQRCARBARY3fSB74SznhQZRBCBSADVBASSAHfC3pZzxBIoplEIJFEAFJANM6v2gOkZz58kp2ohg7UCkBQUQEkgLBI0CgiEECkACiAkkAGgQzIUkgiiACkAGggEkkmZGkQgUg7FUmLtZkJCSBCCBRASSARBQokaCCBSABRASSADQICISEiKQCIICKSZR4kAiEnYkmTrSQ1/e0mdXxDmcUzwpIEIJJEBJIBEFBnV9NUTP2gszhSQAaBARCCBSTKIpA1RnP2plpJAogLiKAoKSdSSZOpJJJApIJCIJEJBEEJJIBEFBEIJCS+SgEUkyiCEkkAGkQyizJUikkAiinSkmTpSSSSSSQKSCSQCISCIISSQCISQKICSQQKSAaBARCCSSQDSIZRST//Z"
+                alt="">
+            
+            <video id="video" src="https://cdn.jsdelivr.net/npm/electroluxasset/video/origin.mp4"></video>
+        </a-assets>
+        <a-entity
+            gltf-model="#model" 
+        ></a-entity>
+        <a-video src="#video" width="8" height="5" position="0 2 -10"></a-video>
+
+        <!-- <a-video src="#video" width="8" height="5" position="0 2 -6"></a-video> -->
+
+        <a-sky material="src:#skyImg"></a-sky>
+
+
+    </a-scene>
+
+    <script>
+
+        document.addEventListener(('keydown'), (e) => {
+            let ball = document.querySelector("#box")
+            // ball.body.applyImpulse(new CANNON.Vec3(0,40,0),new CANNON.Vec3(0,0,0))
+        })
+        // 组件生命后期
+        AFRAME.registerComponent("color-toggle", {
+            init: function () {
+                let el = this.el
+                // this.el.setAttribute('sound', {
+                //     src:"Glow Me.mp3",
+                //     autoplay:true
+                    
+                // });
+
+                this.el.addEventListener("click", (e) => {
+                    e.target.setAttribute("material", "color:rgb(255,255,255)")
+                    // 重要: refreshObjects 可以实现只选择一个
+                    let control = document.querySelector("#video")
+                    if(control.paused){
+                        control.play()
+                    }else{
+                        control.pause()
+                    }
+                })
+                this.el.addEventListener("mouseenter", (e) => {
+
+
+                })
+                this.el.addEventListener("grabStartButtons", (e) => {
+                    // e.target.setAttribute("material", "color:rgb(0,0,0)")
+                    // 重要: refreshObjects 可以实现只选择一个
+                    alert("抓到了")
+                })
+
+            },
+            remove: function () {
+                // this.el.removeEventListener("click",this.toggleColor)
+            },
+            // 进行的时候会用的
+            update() {
+
+            },
+            // 每一次渲染做啥
+            tick() {
+
+                // this.el.getObject3D("mesh").rotation.x +=0.1
+            }
+        })
+    </script>
+    <Button></Button>
+</body>
+
+</html>
