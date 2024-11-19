@@ -10,6 +10,16 @@
 
       let visible = false
 
+      function playPauseVideo(id) {
+        const myVideo = document.querySelector(`#${id}`);
+        if (myVideo.paused) {
+          myVideo.play();
+        } else {
+          myVideo.pause();
+        }
+      }
+
+
       document.addEventListener('DOMContentLoaded', function () {
         const sceneEl = document.querySelector('a-scene')
         let arSystem
@@ -53,6 +63,7 @@
         exampleTarget.addEventListener('targetFound', (event) => {
           console.log('target found', event)
           alert('播放视频')
+          playPauseVideo('example-target')
         })
         // detect target lost
         exampleTarget.addEventListener('targetLost', (event) => {
