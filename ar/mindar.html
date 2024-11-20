@@ -15,7 +15,7 @@
     <script src="https://yans-code.github.io/demo-store/ar/assets/js/aframe.min.js"></script>
     <!-- <script src="https://yans-code.github.io/demo-store/ar/assets/js/aframe-gif-shader.min.js"></script> -->
 
-    <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+    <!-- <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script> -->
     <script src="https://yans-code.github.io/demo-store/ar/assets/js/mindar-image-aframe.prod.js"></script>
     <script>
 
@@ -124,6 +124,8 @@
         id="gif"
         src="https://yans-code.github.io/demo-store/ar/assets/images/giftest.gif"
       ></a-asset-item>
+      
+      <img id="my-image" src="https://yans-code.github.io/demo-store/ar/assets/images/tools.png">
       <a-asset-item
         id="glft"
         src="https://yans-code.github.io/demo-store/ar/assets/glft/cute_dragon/scene.gltf"
@@ -147,8 +149,11 @@
           src="#tree-obj" mtl="#tree-mtl"
           position="-1 0 -10">
         </a-obj-model> -->
+        <a-image 
+          src="#my-image"
+        />
         <a-gltf-model
-          scale="0.1 0.1 0.1"
+          scale="1 1 1"
           src="#glft"
           position="-1 0 -10">
         </a-gltf-model>
