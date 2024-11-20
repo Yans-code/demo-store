@@ -4,10 +4,18 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 人脸与Image Tracking引入的库有不同 -->
+    <!-- <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-face.prod.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-face-aframe.prod.js"></script> -->
+
+
+
+
     <script src="https://yans-code.github.io/demo-store/ar/assets/js/aframe.min.js"></script>
     <!-- <script src="https://yans-code.github.io/demo-store/ar/assets/js/aframe-gif-shader.min.js"></script> -->
 
-<script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+    <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
     <script src="https://yans-code.github.io/demo-store/ar/assets/js/mindar-image-aframe.prod.js"></script>
     <script>
 
@@ -91,7 +99,7 @@
     </div>
     
     <a-scene
-      mindar-image="imageTargetSrc: https://yans-code.github.io/demo-store/ar/assets/map.mind; autoStart: true;"
+      mindar-image="imageTargetSrc: https://yans-code.github.io/demo-store/ar/assets/mouse.mind; autoStart: true;filterMinCF:.001; filterBeta: 1"
       color-space="sRGB"
       renderer="colorManagement: true, physicallyCorrectLights"
       vr-mode-ui="enabled: false"
@@ -129,19 +137,12 @@
         id="example-target"
         mindar-image-target="targetIndex: 0"
         obj-model="obj: #tree-obj; mtl: #tree-mtl"
-        scale="100 100 100"
+        scale="1 1 1"
         position="-10 -10 -10"
-        rotation="180 180 180"
+        rotation="0 0 0"
       >
       </a-entity>
-      <!-- <a-entity
-        id="example-target"
-        mindar-image-target="targetIndex: 0"  animation="property: rotation; to: 0 180 360; loop: true; dur: 700"
-        position="10 10 10"
-        rotation="0 180 0"
-        scale="1 1 1">
-        <a-video src="https://yans-code.github.io/demo-store/ar/assets/video/2023_02_22_test_resource_v.mp4" width="6" height="4" position="5 5 -20"></a-video>
-      </a-entity> -->
+      
     </a-scene>
   </body>
 </html>
