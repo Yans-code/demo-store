@@ -99,7 +99,7 @@
     </div>
     
     <a-scene
-      mindar-image="imageTargetSrc: https://yans-code.github.io/demo-store/ar/assets/mouse.mind; autoStart: true;filterMinCF:.001; filterBeta: 1"
+      mindar-image="imageTargetSrc: https://yans-code.github.io/demo-store/ar/assets/map.mind; autoStart: true;filterMinCF:.001; filterBeta: 1"
       color-space="sRGB"
       renderer="colorManagement: true, physicallyCorrectLights"
       vr-mode-ui="enabled: false"
@@ -124,6 +124,11 @@
         id="gif"
         src="https://yans-code.github.io/demo-store/ar/assets/images/giftest.gif"
       ></a-asset-item>
+      <a-asset-item
+        id="glft"
+        src="https://yans-code.github.io/demo-store/ar/assets/glft/cute_dragon/scene.gltf"
+        
+      ></a-asset-item>
     </a-assets>
       <a-camera
         position="0 0 0"
@@ -136,13 +141,18 @@
       <a-entity
         id="example-target"
         mindar-image-target="targetIndex: 0"
-        obj-model="obj: #tree-obj; mtl: #tree-mtl"
-        scale="0.1 0.1 0.1"
-        position="-1 -1 -1"
-        rotation="0 0 0"
       >
+        <!-- <a-obj-model
+          scale="0.1 0.1 0.1"
+          src="#tree-obj" mtl="#tree-mtl"
+          position="-1 0 -10">
+        </a-obj-model> -->
+        <a-gltf-model
+          scale="0.1 0.1 0.1"
+          src="#glft"
+          position="-1 0 -10">
+        </a-gltf-model>
       </a-entity>
-      
     </a-scene>
   </body>
 </html>
