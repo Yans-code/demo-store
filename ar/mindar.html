@@ -13,7 +13,7 @@
 
 
     <script src="https://yans-code.github.io/demo-store/ar/assets/js/aframe.min.js"></script>
-    <!-- <script src="https://yans-code.github.io/demo-store/ar/assets/js/aframe-gif-shader.min.js"></script> -->
+    <script src="https://yans-code.github.io/demo-store/ar/assets/js/aframe-gif-shader.min.js"></script>
 
     <!-- <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script> -->
     <script src="https://yans-code.github.io/demo-store/ar/assets/js/mindar-image-aframe.prod.js"></script>
@@ -73,7 +73,7 @@
         })
         // detect target found
         exampleTarget?.addEventListener('targetFound', (event) => {
-          // console.log('target found', event.target.object3D.scale.set(0.1, 0.1, 0.1))
+          console.log('target found', event.target)
           // el.object3D.scale.set(1, 2, 3)
           
           // playPauseVideo('example-target')
@@ -143,21 +143,24 @@
       <a-entity
         id="example-target"
         mindar-image-target="targetIndex: 0"
+        animation="property: rotation; to: 0 0 0; loop: true; dur: 10000"
+        rotation="0 0 0" 
       >
-        <!-- <a-obj-model
-          scale="0.1 0.1 0.1"
-          src="#tree-obj" mtl="#tree-mtl"
-          position="-1 0 -10">
-        </a-obj-model> -->
+        
         <a-image 
           src="#my-image"
+          position="-1 0 -10"
         />
         <a-gltf-model
           scale="1 1 1"
           src="#glft"
+          rotation="0 0 0" 
+
+          animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"
           position="-1 0 -10">
         </a-gltf-model>
       </a-entity>
+      <div style="position: absolute; bottom: 10px; right: 20px">asdasdas</div>
     </a-scene>
   </body>
 </html>
