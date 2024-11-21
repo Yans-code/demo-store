@@ -14,7 +14,11 @@
 
     <script src="https://yans-code.github.io/demo-store/ar/assets/js/aframe.min.js"></script>
     <script src="https://yans-code.github.io/demo-store/ar/assets/js/aframe-gif-shader.min.js"></script>
-
+    <!-- <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script> -->
+  </head>
+  
+  
+  
     <!-- <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script> -->
     <script src="https://yans-code.github.io/demo-store/ar/assets/js/mindar-image-aframe.prod.js"></script>
     <script>
@@ -139,7 +143,7 @@
         raycaster="near: 10; far: 10000; objects: .clickable"
       ></a-camera>
       
-      <!-- <a-entity mindar-image-target="targetIndex: 0" geometry="primitive:plane; width:10; height:10" gif-shader="src: https://yans-code.github.io/demo-store/ar/assets/images/giftest.gif; repeat:2,2; play:true" scale="0.1 0.1"></a-entity> -->
+      
       <a-entity
         id="example-target"
         mindar-image-target="targetIndex: 0"
@@ -151,6 +155,8 @@
           src="#my-image"
           position="-1 0 -10"
         />
+        <a-entity geometry="primitive:plane;width:2;height:2;" position="-1.2 2.375 -1" material="shader:gif; src:#gif; color:orange;"></a-entity>
+        <!-- <a-plane width="4" height="4" color="#fff"></a-plane> -->
         <a-gltf-model
           scale="1 1 1"
           src="#glft"
