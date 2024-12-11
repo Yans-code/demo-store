@@ -1,4 +1,4 @@
-import style from './styles.css'
+import style from './t.css'
 
 var img = new Image()
 img.src = avatar
