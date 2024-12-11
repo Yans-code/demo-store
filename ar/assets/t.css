@@ -1,0 +1,5 @@
+.avatar-sass {
+  width: 150px;
+  height: 150px;
+  transform: translate(50px, 50px);
+}
